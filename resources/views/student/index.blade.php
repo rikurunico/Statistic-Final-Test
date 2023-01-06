@@ -33,7 +33,7 @@
             <button onclick="document.getElementById('myModal').showModal()" id="btn" class="focus:outline-none text-white bg-blue-700 hover:bg-gray-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Import Students Data</button>
             </section>
 
-                <dialog id="myModal" class="p-2 bg-white rounded-md w-72 h-72 md:w-1/2 ">
+                <dialog id="myModal" class="w-40 p-2 bg-white rounded-md h-72 md:w-fit ">
                     <div class="flex flex-col w-full h-auto ">
                         <!-- Header -->
                             <div class="flex items-center justify-center w-full h-auto">

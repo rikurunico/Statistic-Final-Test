@@ -1,9 +1,7 @@
 <x-template-layout>
-    <div class="flex">
-    <div class="container">
-
-        <div class="justify-center w-60">
-            <a href="/student"><button class="focus:outline-none text-white bg-teal-700 hover:bg-gray-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Cancel edit</button></a>
+        <div class="container mt-16  flex flex-col w-[1300px] ">
+        <div class="justify-between bg-white h-11/12 py-14 px-14 rounded-xl">
+            <a href="{{route('student.index')}}" class="text-black"> < Back </a>
             <h1 class="my-10 text-2xl font-bold">Add Data students</h1>
             <form action="students" method="POST" enctype="multipart/form-data">
                 @csrf
