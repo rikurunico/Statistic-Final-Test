@@ -100,8 +100,7 @@
                 <td class="px-6 py-4">
 
                 </td>
-                @dd($students)
-                <td class="px-6 py-4"><a href="admin/{{$students->id}}/edit"><button class="w-16 h-8 text-white bg-yellow-500 rounded-full">Edit</button></a></td>
+                <td class="px-6 py-4"><a href="admin/{{$s->id }}/edit"><button class="w-16 h-8 text-white bg-yellow-500 rounded-full">Edit</button></a></td>
                 <td class="px-6 py-4">
                     <button class="w-16 h-8 text-white bg-red-500 rounded rounded-full modal-open hover:text-white">
                         Delete
