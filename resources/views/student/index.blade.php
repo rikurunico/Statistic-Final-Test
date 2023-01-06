@@ -105,7 +105,9 @@
                 <form action="{{ route('student.destroy', $student->id) }}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="w-16 h-8 text-white bg-red-500 rounded-full" onclick="return confirm('Apakah Yakin Mau Menghapus data {{ $student->name }}')">Delete</button>
+                <button type="submit" class="w-16 h-8 text-white bg-red-500 rounded-full" onclick="return confirm('Apakah Kamu Yakin Ingin Menghapus Data {{ $student->name }}')">Delete</button>
+                </form>
+
               </th>
             </tr>
             @endforeach
