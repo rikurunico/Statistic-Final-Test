@@ -100,7 +100,7 @@
                 <td class="px-6 py-4">
                 {{ $student->score }}
                 </td>
-                <td class="px-6 py-4"><a href="admin/{{$student->id}}/edit"><button class="w-16 h-8 text-white bg-yellow-500 rounded-full">Edit</button></a></td>
+                <td class="px-6 py-4"><a href="{{ route('student.edit', $student->id) }}"><button class="w-16 h-8 text-white bg-yellow-500 rounded-full">Edit</button></a></td>
                 <td class="px-6 py-4">
                     <button class="w-16 h-8 text-white bg-red-500 rounded rounded-full modal-open hover:text-white">
                         Delete
@@ -129,7 +129,7 @@
                                   <button
                                     class="px-5 py-2 font-semibold text-white bg-black rounded-full modal-close focus:outline-none">No,
                                     Keep it.</button>
-                                    <form action="admin/{{$student->id}}" method="POST">
+                                    <form action="{{ route('student.destroy', $student->id) }}" method="POST">
                                         @csrf
                                         @method ('delete')
                                 <input class="px-5 py-2 font-semibold text-white bg-red-500 rounded-full modal-close focus:outline-none" type="submit" value="Delete">

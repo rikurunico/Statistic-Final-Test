@@ -24,7 +24,7 @@ class UpdateStudentRequest extends FormRequest
     public function rules()
     {
         return [
-            'NIM' => 'required|integer|exists:student_tables',
+            'NIM' => 'required|numeric|unique:student_tables',
             'name' => 'required|string',
             'score' => 'required',
         ];
