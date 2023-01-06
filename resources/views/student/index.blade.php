@@ -86,22 +86,21 @@
                     </tr>
             </thead>
         <tbody>
-
+            @foreach ($students as $student)
             <tr class="bg-white border-b">
             <td class="px-6 py-4">
-
+            {{ $loop->iteration }}
                 </td>
                 <td class="px-6 py-4">
-
+                {{ $student->NIM }}
                 </td>
                 <td class="px-6 py-4">
-
+                {{ $student->name }}
                 </td>
                 <td class="px-6 py-4">
-
+                {{ $student->score }}
                 </td>
-                @dd($students)
-                <td class="px-6 py-4"><a href="admin/{{$students->id}}/edit"><button class="w-16 h-8 text-white bg-yellow-500 rounded-full">Edit</button></a></td>
+                <td class="px-6 py-4"><a href="admin/{{$student->id}}/edit"><button class="w-16 h-8 text-white bg-yellow-500 rounded-full">Edit</button></a></td>
                 <td class="px-6 py-4">
                     <button class="w-16 h-8 text-white bg-red-500 rounded rounded-full modal-open hover:text-white">
                         Delete
@@ -130,7 +129,7 @@
                                   <button
                                     class="px-5 py-2 font-semibold text-white bg-black rounded-full modal-close focus:outline-none">No,
                                     Keep it.</button>
-                                    <form action="admin/{{$s->id}}" method="POST">
+                                    <form action="admin/{{$student->id}}" method="POST">
                                         @csrf
                                         @method ('delete')
                                 <input class="px-5 py-2 font-semibold text-white bg-red-500 rounded-full modal-close focus:outline-none" type="submit" value="Delete">
@@ -140,38 +139,42 @@
                             </div>
                           </div>
                         </div>
-
-                        <script>
-                          var openmodal = document.querySelectorAll('.modal-open')
-                          for (var i = 0; i < openmodal.length; i++) {
-                            openmodal[i].addEventListener('click', function (event) {
-                              event.preventDefault()
-                              toggleModal()
-                            })
-                          }
-
-                          const overlay = document.querySelector('.modal-overlay')
-                          overlay.addEventListener('click', toggleModal)
-
-                          var closemodal = document.querySelectorAll('.modal-close')
-                          for (var i = 0; i < closemodal.length; i++) {
-                            closemodal[i].addEventListener('click', toggleModal)
-                          }
-
-                          function toggleModal() {
-                            const body = document.querySelector('body')
-                            const modal = document.querySelector('.modal')
-                            modal.classList.toggle('opacity-0')
-                            modal.classList.toggle('pointer-events-none')
-                            body.classList.toggle('modal-active')
-                          }
-                        </script>
                       </div>
-                </td>
+                    </div>
+                  </td>
                 </th>
             </tr>
+            @endforeach
         </tbody>
     </table>
-</div>
+    <div class="mt-6">
+      {{ $students->links() }}
+    </div>
+  </div>
+  <script>
+      var openmodal = document.querySelectorAll('.modal-open')
+      for (var i = 0; i < openmodal.length; i++) {
+        openmodal[i].addEventListener('click', function (event) {
+          event.preventDefault()
+          toggleModal()
+        })
+      }
+
+      const overlay = document.querySelector('.modal-overlay')
+      overlay.addEventListener('click', toggleModal)
+
+      var closemodal = document.querySelectorAll('.modal-close')
+      for (var i = 0; i < closemodal.length; i++) {
+        closemodal[i].addEventListener('click', toggleModal)
+      }
+
+      function toggleModal() {
+        const body = document.querySelector('body')
+        const modal = document.querySelector('.modal')
+        modal.classList.toggle('opacity-0')
+        modal.classList.toggle('pointer-events-none')
+        body.classList.toggle('modal-active')
+      }
+  </script>
 </div>
 </x-template-layout>
