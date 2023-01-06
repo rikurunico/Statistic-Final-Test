@@ -102,47 +102,11 @@
                 </td>
                 <td class="px-6 py-4"><a href="{{ route('student.edit', $student->id) }}"><button class="w-16 h-8 text-white bg-yellow-500 rounded-full">Edit</button></a></td>
                 <td class="px-6 py-4">
-                    <button class="w-16 h-8 text-white bg-red-500 rounded rounded-full modal-open hover:text-white">
-                        Delete
-                        </button>
-                        <div class="fixed top-0 left-0 flex items-center justify-center w-full h-full opacity-0 pointer-events-none modal">
-                          <div class="absolute w-full h-full opacity-50 bg-black-300 modal-overlay"></div>
-                          <div
-                            class="z-50 max-w-lg mx-auto overflow-y-auto bg-white rounded shadow-lg modal-container bg-gradient-to-r ">
-                            <div class="px-6 py-4 text-left modal-content">
-                              <div class="flex items-center justify-end pb-3">
-                                <div class="z-50 p-2 cursor-pointer modal-close">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-black" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                                    </svg>
-
-                                </div>
-                              </div>
-                              <h2 class="mt-1 text-2xl font-bold text-center text-black">Delete media?</h2>
-                              <p class="mx-6 my-6 font-medium text-center text-black ">
-                                Are you sure you want to delete this data student ? You can't undo this action.
-                              </p>
-
-                              <div class="flex-row items-center py-4 mx-auto text-center md:flex md:justify-between">
-                                <div class="my-4 space-y-2 sm:space-x-2">
-                                  <button
-                                    class="px-5 py-2 font-semibold text-white bg-black rounded-full modal-close focus:outline-none">No,
-                                    Keep it.</button>
-                                    <form action="{{ route('student.destroy', $student->id) }}" method="POST">
-                                        @csrf
-                                        @method ('delete')
-                                <input class="px-5 py-2 font-semibold text-white bg-red-500 rounded-full modal-close focus:outline-none" type="submit" value="Delete">
-                                </form>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </td>
-                </th>
+                <form action="{{ route('student.destroy', $student->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="w-16 h-8 text-white bg-red-500 rounded-full" onclick="return confirm('Apakah Yakin Mau Menghapus data {{ $student->name }}')">Delete</button>
+              </th>
             </tr>
             @endforeach
         </tbody>
@@ -151,30 +115,5 @@
       {{ $students->links() }}
     </div>
   </div>
-  <script>
-      var openmodal = document.querySelectorAll('.modal-open')
-      for (var i = 0; i < openmodal.length; i++) {
-        openmodal[i].addEventListener('click', function (event) {
-          event.preventDefault()
-          toggleModal()
-        })
-      }
-
-      const overlay = document.querySelector('.modal-overlay')
-      overlay.addEventListener('click', toggleModal)
-
-      var closemodal = document.querySelectorAll('.modal-close')
-      for (var i = 0; i < closemodal.length; i++) {
-        closemodal[i].addEventListener('click', toggleModal)
-      }
-
-      function toggleModal() {
-        const body = document.querySelector('body')
-        const modal = document.querySelector('.modal')
-        modal.classList.toggle('opacity-0')
-        modal.classList.toggle('pointer-events-none')
-        body.classList.toggle('modal-active')
-      }
-  </script>
 </div>
 </x-template-layout>
