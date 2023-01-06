@@ -1,19 +1,19 @@
-<aside class="h-screen px-3 py-4 mr-5 text-white bg-teal-500 rounded w-72" aria-label="Sidebar">
+<aside class="w-11/12 px-3 py-4 mr-5 text-white bg-teal-500 rounded h-11/12 w-72" aria-label="Sidebar">
     <div class="">
       <h3 class="mb-5 text-2xl font-bold text-center" ><div class="mb-4">
-      <img src="https://cdn.undiksha.ac.id/wp-content/uploads/2021/12/27081301/logo-undiksha.png" class="w-72 h-auto rounded-full" alt="">
+      <img src="https://cdn.undiksha.ac.id/wp-content/uploads/2021/12/27081301/logo-undiksha.png" class="h-auto rounded-full w-72" alt="">
       </div> Static Admin</h3>
       <ul class="space-y-2">
         <li>
           <a href="/" class="flex items-center p-2 text-base font-normal rounded-lg text-white-900">
             <i class="fa-solid fa-table-columns"></i>
-            <span class="ml-3 text-white block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-teal-600 md:p-0"">Home</span>
+            <span class="block py-2 pl-3 pr-4 ml-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-teal-600 md:p-0"">Home</span>
           </a>
         </li>
         <li>
           <a href="/admin" class="flex items-center p-2 text-base font-normal rounded-lg text-white-900">
             <i class="fa-solid fa-table-columns " ></i>
-            <span class="ml-3 text-white block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-teal-600 md:p-0">Admin</span>
+            <span class="block py-2 pl-3 pr-4 ml-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-teal-600 md:p-0">Admin</span>
           </a>
         </li>
         <li>

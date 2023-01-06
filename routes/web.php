@@ -23,7 +23,6 @@ Route::get('/', function () {
 //Create Group Route
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('/student', StudentController::class);
-    Route::resource('/student-data', StudentController::class);
 });
 
 require __DIR__ . '/auth.php';

@@ -3,7 +3,7 @@
     <div class="flex flex-col w-[1300px]">
    <div class="relative w-full overflow-x-auto ">
     <h1 class="my-10 text-3xl font-bold">Student Data</h1>
-    <a href=""><button class="focus:outline-none text-white bg-teal-700 hover:bg-gray-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800">Add Data</button></a>
+    <a href="create"><button class="focus:outline-none text-white bg-teal-700 hover:bg-gray-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800">Add Data</button></a>
     <a href=""><button class="focus:outline-none text-white bg-teal-700 hover:bg-gray-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Export PDF</button></a>
     <a href=""><button class="focus:outline-none text-white bg-teal-700 hover:bg-gray-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Export EXCEL</button></a>
         <style>
@@ -62,7 +62,7 @@
                              </div>
                          </div>
 
-                <table class="w-full text-sm text-left text-gray-500">
+                <table class="w-full px-10 py-10 text-sm text-left text-graborder-y-red-500">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-200">
                          <tr>
                         <th scope="col" class="px-6 py-3">
@@ -147,7 +147,7 @@
             @endforeach
         </tbody>
     </table>
-    <div class="mt-6">
+    <div class="px-4 mt-6 mb-6">
       {{ $students->links() }}
     </div>
   </div>
