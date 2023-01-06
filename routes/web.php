@@ -20,4 +20,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('student', StudentController::class);
+//Create Group Route
+Route::group(['middleware' => ['auth']], function () {
+    Route::resource('/student', StudentController::class);
+});
+
+require __DIR__ . '/auth.php';
