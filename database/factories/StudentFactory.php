@@ -17,7 +17,8 @@ class StudentFactory extends Factory
     public function definition()
     {
         return [
-            'NIM' => $this->faker->unique()->randomNumber(),
+            //NIM MUST HAVE 10 Digits
+            'NIM' => $this->faker->unique()->numberBetween(1000000000, 9999999999),
             'name' => $this->faker->name(),
             'score' => $this->faker->randomFloat(2, 0, 100),
         ];
