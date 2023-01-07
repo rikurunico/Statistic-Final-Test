@@ -4,8 +4,8 @@
    <div class="relative w-full overflow-x-auto ">
     <h1 class="my-10 text-3xl font-bold">Student Data</h1>
     <a href="{{ route('student.create') }}"><button class="focus:outline-none text-white bg-teal-700 hover:bg-gray-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800">Add Data</button></a>
-    <a href=""><button class="focus:outline-none text-white bg-teal-700 hover:bg-gray-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Export PDF</button></a>
-    <a href=""><button class="focus:outline-none text-white bg-teal-700 hover:bg-gray-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Export EXCEL</button></a>
+    <a href="{{ route('exportPDF') }}"><button class="focus:outline-none text-white bg-teal-700 hover:bg-gray-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Export PDF</button></a>
+    <a href="{{ route('exportExcel')}}"><button class="focus:outline-none text-white bg-teal-700 hover:bg-gray-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Export EXCEL</button></a>
         <style>
             dialog[open] {
                 animation: appear .15s cubic-bezier(0, 1.8, 1, 1.8);
@@ -32,7 +32,15 @@
             <section class="flex">
             <button onclick="document.getElementById('myModal').showModal()" id="btn" class="focus:outline-none text-white bg-blue-700 hover:bg-gray-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Import Students Data</button>
             </section>
-
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
                 <dialog id="myModal" class="w-40 p-2 bg-white rounded-md h-72 md:w-fit ">
                     <div class="flex flex-col w-full h-auto ">
                         <!-- Header -->
@@ -47,14 +55,15 @@
                         </div>
                          <!-- Modal Content-->
                          <div class="card-body">
-                             <form action=""
+                             <form action="{{ route('importExcel') }}"
                                             method="POST"
                                             enctype="multipart/form-data">
                                             @csrf
                                             <input type="file" name="file"
-                                            class="mt-10 mx-72 form-control md-72">
+                                            class="mt-10 mx-72 form-control md-72" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
                                             <br>
                                             <button class=" mt-10 focus:outline-none mx-72 md-72 text-white bg-teal-700 hover:bg-gray-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800 btn btn-success">
+                                            @lang('Import')
                                             Input
                                             </button>
                                     </form>

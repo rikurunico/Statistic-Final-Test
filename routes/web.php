@@ -3,6 +3,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\ExportImportController;
 
 
 /*
@@ -23,6 +24,9 @@ Route::get('/', function () {
 //Create Group Route
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('/student', StudentController::class);
+    Route::get('/export', [ExportImportController::class, 'cetak_pdf'])->name('exportPDF');
+    Route::get('/export_excel', [ExportImportController::class, 'export_excel'])->name('exportExcel');
+    Route::Post('/import_excel', [ExportImportController::class, 'import_excel'])->name('importExcel');
 });
 
 require __DIR__ . '/auth.php';

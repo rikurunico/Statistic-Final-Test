@@ -32,8 +32,8 @@
         <tr>
             <th scope="row">{{ ++$no }}</th>
             <td>{{ $s->NIM }}</td>
-            <td>{{ $s->Name }}</td>
-            <td>{{ $s->Score }}</td>
+            <td>{{ $s->name }}</td>
+            <td>{{ $s->score }}</td>
           </tr>
         @endforeach
 		</tbody>
