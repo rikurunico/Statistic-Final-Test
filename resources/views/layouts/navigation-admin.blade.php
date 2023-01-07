@@ -1,8 +1,8 @@
 <aside class="w-11/12 px-3 py-4 mr-5 text-white bg-teal-500 rounded h-11/12 w-72" aria-label="Sidebar">
     <div class="">
       <h3 class="mb-5 text-2xl font-bold text-center" ><div class="mb-4">
-      <img src="https://cdn.undiksha.ac.id/wp-content/uploads/2021/12/27081301/logo-undiksha.png" class="h-auto rounded-full w-72" alt="">
-      </div> Static Admin</h3>
+      <img url="public/img/ILKOM" class="h-auto rounded-full w-72" alt="">
+      </div> Computer Science</h3>
       <ul class="space-y-2">
         <li>
           <a href="/" class="flex items-center p-2 text-base font-normal rounded-lg text-white-900">
