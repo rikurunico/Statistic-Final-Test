@@ -8,10 +8,7 @@
             @method('PUT')
             <div class="mb-6">
                 <label for="nim" class="block mb-2 text-sm font-medium text-gray-900">Student NIM</label>
-                <input type="text" name="NIM" id="nim" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-96 block p-2.5" value="{{ old('NIM',$student->NIM) }}">
-                @if ($errors->has('NIM'))
-                    <span class="text-red-500 text-sm">{{ $errors->first('NIM') }}</span>
-                @endif
+                <input type="text" name="NIM" id="nim" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-96 block p-2.5" value="{{ old('NIM',$student->NIM) }}" readonly>
             </div>
             <div class="mb-6">
                 <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Student Name</label>

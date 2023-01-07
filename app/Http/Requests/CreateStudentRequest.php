@@ -24,7 +24,8 @@ class CreateStudentRequest extends FormRequest
     public function rules()
     {
         return [
-            'NIM' => 'required|numeric|unique:student_tables',
+            //validasi laravel panjang angka minimal 10 panjangnya 10
+            'NIM' => 'required|numeric|digits:10|unique:students,NIM',
             'name' => 'required|string',
             'score' => 'required',
         ];
