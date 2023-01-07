@@ -1,8 +1,8 @@
 <x-template-layout>
 
-    <div class="flex flex-col w-[1300px]">
-   <div class="relative w-full overflow-x-auto ">
-    <h1 class="my-10 text-3xl font-bold">Student Data</h1>
+<div class="flex flex-col w-[1250px] px-10 mt-5 bg-white shadow-xl rounded-xl">
+   <div class="relative w-full overflow-x-auto">
+    <h1 class="my-10 px-96 text-3xl text-center font-bold">Student Data</h1>
     <a href="{{ route('student.create') }}"><button class="focus:outline-none text-white bg-teal-700 hover:bg-gray-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800">Add Data</button></a>
     <a href="{{ route('exportPDF') }}"><button class="focus:outline-none text-white bg-teal-700 hover:bg-gray-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Export PDF</button></a>
     <a href="{{ route('exportExcel')}}"><button class="focus:outline-none text-white bg-teal-700 hover:bg-gray-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Export EXCEL</button></a>
@@ -29,8 +29,8 @@
             }
         </style>
 
-            <section class="flex">
-            <button onclick="document.getElementById('myModal').showModal()" id="btn" class="focus:outline-none text-white bg-blue-700 hover:bg-gray-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Import Students Data</button>
+            <section class="flex item">
+            <button onclick="document.getElementById('myModal').showModal()" id="btn" class="absolute top-28 right-0 mt-1 focus:outline-none text-white bg-blue-700 hover:bg-gray-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Import Students Data</button>
             </section>
             @if ($errors->any())
                 <div class="alert alert-danger">
@@ -42,7 +42,7 @@
                 </div>
             @endif
                 <dialog id="myModal" class="w-40 p-2 bg-white rounded-md h-72 md:w-fit ">
-                    <div class="flex flex-col w-full h-auto ">
+                    <div class="flex flex-col w-full h-auto">
                         <!-- Header -->
                             <div class="flex items-center justify-center w-full h-auto">
                             <div class="flex items-center justify-center w-10/12 h-auto py-3 text-2xl font-bold">
@@ -71,10 +71,10 @@
                              </div>
                          </div>
 
-                <table class="w-full px-10 py-10 text-sm text-left text-graborder-y-red-500">
+                <table class="w-full px-10 py-10 mt-3 text-sm text-left text-graborder-y-red-500 shadow-md">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-200">
                          <tr>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-2 py-5">
                         Number
                         </th>
                         <th scope="col" class="px-6 py-3">
@@ -93,6 +93,7 @@
                         action
                         </th>
                     </tr>
+
             </thead>
         <tbody>
             @foreach ($students as $student)

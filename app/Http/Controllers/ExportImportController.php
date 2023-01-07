@@ -16,8 +16,8 @@ class ExportImportController extends Controller
     {
         $student = Student::all();
         // $dataPertama = $ss
-        $pdf = PDF::loadview('Admin.PDF', ['students' => $student]);
-        return $pdf->download('laporan-student.pdf');
+        $pdf = PDF::loadview('student.PDF', ['students' => $student]);
+        return $pdf->download('student-data.pdf');
     }
 
     public function export_excel()
@@ -31,9 +31,9 @@ class ExportImportController extends Controller
         $this->validate($request, [
             'file' => 'required|mimes:csv,xls,xlsx'
         ]);
-        
+
         $file = $request->file('file');
         Excel::import(new StudentsImport, $file);
-        return redirect()->back()->with('success', 'Data Berhasil Diimport!');
+        return redirect()->back()->with('success', 'Data Succesfully imported!');
     }
 }
