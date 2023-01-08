@@ -17,9 +17,6 @@ use App\Http\Controllers\ExportImportController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 //Create Group Route
 Route::group(['middleware' => ['auth']], function () {
@@ -27,6 +24,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/export', [ExportImportController::class, 'cetak_pdf'])->name('exportPDF');
     Route::get('/export_excel', [ExportImportController::class, 'export_excel'])->name('exportExcel');
     Route::Post('/import_excel', [ExportImportController::class, 'import_excel'])->name('importExcel');
+    Route::get('/', function () {
+        return view('welcome');
+    });
 });
 
 require __DIR__ . '/auth.php';
