@@ -4,8 +4,13 @@
    <div class="relative w-full overflow-x-auto">
     <h1 class="my-10 px-96 text-3xl text-center font-bold">Student Data</h1>
     <a href="{{ route('student.create') }}"><button class="focus:outline-none text-white bg-teal-700 hover:bg-gray-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800">Add Data</button></a>
+    @if ($students->count() > 0)
     <a href="{{ route('exportPDF') }}"><button class="focus:outline-none text-white bg-teal-700 hover:bg-gray-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Export PDF</button></a>
     <a href="{{ route('exportExcel')}}"><button class="focus:outline-none text-white bg-teal-700 hover:bg-gray-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Export EXCEL</button></a>
+    @else 
+    <a href="{{ route('exportPDF') }}"><button class="focus:outline-none text-white bg-teal-700 hover:bg-gray-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800" disabled>Export PDF</button></a>
+    <a href="{{ route('exportExcel')}}"><button class="focus:outline-none text-white bg-teal-700 hover:bg-gray-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" disabled>Export EXCEL</button></a>
+    @endif
         <style>
             dialog[open] {
                 animation: appear .15s cubic-bezier(0, 1.8, 1, 1.8);
@@ -70,7 +75,6 @@
                                 </div>
                              </div>
                          </div>
-
                 <table class="w-full px-10 py-10 mt-3 text-sm text-left text-graborder-y-red-500 shadow-md">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-200">
                          <tr>
@@ -96,6 +100,7 @@
 
             </thead>
         <tbody>
+            @if ($students->count() > 0)
             @foreach ($students as $student)
             <tr class="bg-white border-b">
             <td class="px-6 py-4">
@@ -121,6 +126,13 @@
               </th>
             </tr>
             @endforeach
+            @else
+            <tr>
+            <td colspan="6" class="px-6 py-4 text-center">
+            Data Kosong
+            </td>
+            </tr>
+            @endif
         </tbody>
     </table>
     <div class="px-4 mt-6 mb-6">

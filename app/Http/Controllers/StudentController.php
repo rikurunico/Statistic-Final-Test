@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateStudentRequest;
 use App\Http\Requests\UpdateStudentRequest;
 use App\Models\Student;
+use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
@@ -86,5 +87,18 @@ class StudentController extends Controller
     {
         $student->delete();
         return redirect()->route('student.index')->with('success', 'Successfully deleted student data!');
+    }
+
+    /**
+     * Find the specified resource from storage.
+     *
+     * @param  \App\Models\Student  $student
+     * @return \Illuminate\Http\Response
+     */
+    public function search(Request $request)
+    {
+        $search = $request->get('search');
+        $students = Student::where('name', 'like', '%' . $search . '%')->paginate(6);
+        return view('student.index', compact('students'));
     }
 }
