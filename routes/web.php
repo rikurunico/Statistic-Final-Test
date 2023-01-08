@@ -27,6 +27,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::prefix('/murid')->group(function () {
         Route::get('/export', [ExportImportController::class, 'cetak_pdf'])->name('exportPDF');
         Route::get('/search', [StudentController::class, 'search'])->name('search');
+        Route::get('/sort', [StudentController::class, 'sort'])->name('sort');
         Route::get('/export_excel', [ExportImportController::class, 'export_excel'])->name('exportExcel');
         Route::Post('/import_excel', [ExportImportController::class, 'import_excel'])->name('importExcel');
     });
