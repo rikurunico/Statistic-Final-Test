@@ -20,12 +20,15 @@ use App\Http\Controllers\ExportImportController;
 
 //Create Group Route
 Route::group(['middleware' => ['auth']], function () {
-    Route::resource('/student', StudentController::class);
-    Route::get('/export', [ExportImportController::class, 'cetak_pdf'])->name('exportPDF');
-    Route::get('/export_excel', [ExportImportController::class, 'export_excel'])->name('exportExcel');
-    Route::Post('/import_excel', [ExportImportController::class, 'import_excel'])->name('importExcel');
     Route::get('/', function () {
         return view('welcome');
+    });
+    Route::resource('/student', StudentController::class);
+    Route::prefix('/murid')->group(function () {
+        Route::get('/export', [ExportImportController::class, 'cetak_pdf'])->name('exportPDF');
+        Route::get('/search', [StudentController::class, 'search'])->name('search');
+        Route::get('/export_excel', [ExportImportController::class, 'export_excel'])->name('exportExcel');
+        Route::Post('/import_excel', [ExportImportController::class, 'import_excel'])->name('importExcel');
     });
 });
 
