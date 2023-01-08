@@ -101,4 +101,11 @@ class StudentController extends Controller
         $students = Student::where('name', 'like', '%' . $search . '%')->paginate(6);
         return view('student.index', compact('students'));
     }
+
+    public function sort(Request $request)
+    {
+        $sort = $request->get('sort');
+        $students = Student::orderBy('NIM', $sort)->paginate(6);
+        return view('student.index', compact('students'));
+    }
 }
