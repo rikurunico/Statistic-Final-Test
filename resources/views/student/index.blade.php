@@ -1,7 +1,7 @@
 <x-template-layout>
 
 <div class="flex flex-col w-[1250px] px-10 mt-5 bg-white shadow-xl rounded-xl">
-   <div class="px-20 relative w-full overflow-x-auto">
+   <div class="relative w-full overflow-x-auto">
     <h1 class="my-10 px-96 text-3xl text-center font-bold">Student Data</h1>
     <a href="{{ route('student.create') }}"><button class="focus:outline-none text-white bg-teal-700 hover:bg-gray-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800">Add Data</button></a>
     @if ($students->count() > 0)
@@ -48,7 +48,7 @@
     <form action="{{ route('sort') }}" method="GET">
 	<div class="flex items-center justify-between mt-4">
 	  <p class="font-medium">
-		Filters
+		Filter by NIM
 	  </p>
 	  <button class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md">
 		Reset Filter
@@ -58,7 +58,8 @@
 	<div>
 	  <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 mt-2">
 		<select class="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm">
-		  <option value="NIM">NIM</option>
+		  <option value="Ascending">Ascending</option>
+          <option value="Decending">Decending</option>
 		</select>
     </form>
 
