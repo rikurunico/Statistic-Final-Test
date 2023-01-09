@@ -14,7 +14,7 @@ class ExportImportController extends Controller
 {
     public function cetak_pdf()
     {
-        $job = (new ExportPDF())->delay(now()->addSeconds(5));
+        $job = new ExportPDF();
         dispatch($job);
         //Download File From public/pdf/students.pdf
         return response()->download(storage_path('app/public/pdf/students.pdf'));
