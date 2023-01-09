@@ -27,7 +27,6 @@
                 opacity: 0;
                 transform: translateX(-3rem);
                 }
-
             to {
                 opacity: 1;
                 transform: translateX(0);

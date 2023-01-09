@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Exports\StudentsExport;
 use App\Imports\StudentsImport;
+use App\Jobs\ExportPDF;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use PDF;
@@ -13,10 +14,10 @@ class ExportImportController extends Controller
 {
     public function cetak_pdf()
     {
-        $student = Student::all();
-        // $dataPertama = $ss
-        $pdf = PDF::loadview('student.PDF', ['students' => $student]);
-        return $pdf->download('student-data.pdf');
+        $job = (new ExportPDF())->delay(now()->addSeconds(5));
+        dispatch($job);
+        //Download File From public/pdf/students.pdf
+        return response()->download(storage_path('app/public/pdf/students.pdf'));
     }
 
     public function export_excel()
