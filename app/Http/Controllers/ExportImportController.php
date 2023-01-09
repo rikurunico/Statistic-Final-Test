@@ -17,7 +17,12 @@ class ExportImportController extends Controller
         $job = new ExportPDF();
         dispatch($job);
         //Download File From public/pdf/students.pdf
-        return response()->download(storage_path('app/public/pdf/students.pdf'));
+
+        if (!file_exists(storage_path('app/public/pdf/students.pdf'))) {
+            return redirect()->back()->with('error', 'Data sedang di generate, silahkan coba beberapa saat lagi');
+        }
+
+        return response()->download(storage_path('app/public/pdf/students.pdf'))->deleteFileAfterSend(true);
     }
 
     public function export_excel()
